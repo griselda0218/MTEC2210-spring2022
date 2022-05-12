@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     void SpawnCar()
     {
         int index = Random.Range(0, carSpawnPoints.Length);
@@ -31,6 +37,18 @@ public class GameManager : MonoBehaviour
 
         GameObject car = Instantiate(carPreFab, spawnPos, Quaternion.identity);
 
+
+      //  int dirModifier = 0;
+
+      //  if (index > 2)
+      //  {
+      //      dirModifier = -1;
+      //  }
+       // else
+      //  {
+      //      dirModifier = 1;
+      //      car.GetComponent<SpiritRenderer>().flipX = true;
+      //  }
 
         int dirModifier = (index > 2) ? -1 : 1;
 

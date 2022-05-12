@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speed = 5.0f;
+    public GameManager gameManager;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
         float yMovement = yMove * speed * Time.deltaTime;
 
         transform.Translate(xMovement, yMovement, 0);
+
+        
 
     }
 
@@ -32,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Goal")
         {
             Debug.Log("Area Cleared");
+            gameManager.ReloadScene();
         }
      
     }
